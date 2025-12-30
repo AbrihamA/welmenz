@@ -1,693 +1,677 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.65">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Welmenz Business Group — Ethiopian-Based Gemstone Exporter</title>
+  <meta name="description" content="Welmenz Business Group is an Ethiopian-based gemstone exporter providing authentic stones, transparent sourcing, and reliable export services." />
+  <style>
+    :root{
+      --blue-900:#0b2a6f;
+      --blue-800:#123a9a;
+      --blue-700:#1f55d1;
+      --blue-600:#2e6bff;
+      --blue-100:#eaf1ff;
+      --text:#0a1020;
+      --muted:#56607a;
+      --border:rgba(11,42,111,.12);
+      --shadow:0 12px 30px rgba(11,42,111,.10);
+      --radius:16px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:#fff;
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 18px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;
+      background:var(--blue-800);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.18);
+      padding:12px 16px;
+      border-radius:12px;
+      font-weight:600;
+      box-shadow:0 10px 24px rgba(18,58,154,.18);
+      transition:transform .15s ease, filter .15s ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px);filter:brightness(1.03)}
+    .btn.secondary{
+      background:#fff;color:var(--blue-900);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    /* Top bar */
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.86);
+      backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      height:72px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .brand-logo{
+      width:44px;height:44px;border-radius:12px;
+      background:linear-gradient(180deg, #ffffff 0%, var(--blue-100) 100%);
+      border:1px solid var(--border);
+      display:grid;place-items:center;
+      overflow:hidden;
+    }
+    .brand-logo img{width:100%;height:100%;object-fit:contain;padding:6px}
+    .brand span{font-size:18px}
+
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{
+      color:var(--muted);
+      font-weight:600;
+      padding:10px 10px;
+      border-radius:10px;
+    }
+    nav a:hover{background:rgba(11,42,111,.06);color:var(--blue-900)}
+    .nav-cta{display:flex;gap:10px;align-items:center}
+
+    /* Mobile menu */
+    .burger{
+      display:none;
+      width:44px;height:44px;border-radius:12px;
+      border:1px solid var(--border);background:#fff;
+      align-items:center;justify-content:center;
+      cursor:pointer;
+    }
+    .burger svg{width:22px;height:22px;fill:var(--blue-900)}
+    .mobile-panel{
+      display:none;
+      border-top:1px solid var(--border);
+      background:#fff;
+    }
+    .mobile-panel .container{padding:14px 18px 18px}
+    .mobile-panel a{
+      display:block;
+      padding:12px 12px;
+      border-radius:12px;
+      color:var(--blue-900);
+      font-weight:700;
+    }
+    .mobile-panel a:hover{background:rgba(11,42,111,.06)}
+    .mobile-panel .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
+    /* Hero */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:68px 0 44px;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;inset:-200px -100px auto -100px;
+      height:520px;
+      background:
+        radial-gradient(600px 300px at 20% 30%, rgba(46,107,255,.18), transparent 60%),
+        radial-gradient(500px 260px at 80% 20%, rgba(18,58,154,.14), transparent 60%),
+        linear-gradient(180deg, rgba(234,241,255,.70), rgba(255,255,255,0));
+      pointer-events:none;
+    }
+    .hero-grid{
+      position:relative;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:26px;
+      align-items:center;
+    }
+    .kicker{
+      display:inline-flex;align-items:center;gap:10px;
+      font-weight:800;color:var(--blue-900);
+      background:rgba(234,241,255,.9);
+      border:1px solid var(--border);
+      padding:8px 12px;border-radius:999px;
+      width:fit-content;
+    }
+    .kicker .dot{width:10px;height:10px;border-radius:50%;background:var(--blue-700)}
+    h1{
+      margin:14px 0 10px;
+      font-size:44px;
+      line-height:1.06;
+      letter-spacing:-.6px;
+      color:var(--blue-900);
+    }
+    .lead{margin:0 0 18px;color:var(--muted);font-size:18px;max-width:58ch}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+
+    .hero-card{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:#fff;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero-card .pad{padding:18px}
+    .statgrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:8px;
+    }
+    .stat{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, #fff, rgba(234,241,255,.6));
+      border-radius:14px;
+      padding:12px;
+    }
+    .stat b{display:block;color:var(--blue-900);font-size:14px}
+    .stat span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+    .mini{
+      display:flex;gap:10px;align-items:flex-start;
+      color:var(--muted);font-size:14px;margin:12px 0 0;
+    }
+    .mini svg{flex:0 0 18px;margin-top:2px;fill:var(--blue-700)}
+
+    /* Sections */
+    section{padding:54px 0}
+    .section-title{
+      font-size:28px;letter-spacing:-.3px;
+      margin:0 0 10px;color:var(--blue-900);
+    }
+    .section-sub{
+      margin:0 0 24px;color:var(--muted);max-width:78ch
+    }
+
+    .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .pill{
+      font-size:13px;font-weight:700;color:var(--blue-900);
+      background:rgba(234,241,255,.9);
+      border:1px solid var(--border);
+      padding:8px 10px;border-radius:999px;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:22px;
+    }
+    .feature{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px;
+      background:#fff;
+      box-shadow:0 10px 22px rgba(11,42,111,.06);
+    }
+    .feature .icon{
+      width:44px;height:44px;border-radius:14px;
+      background:rgba(234,241,255,.9);
+      border:1px solid var(--border);
+      display:grid;place-items:center;
+      margin-bottom:12px;
+    }
+    .feature .icon svg{width:22px;height:22px;fill:var(--blue-800)}
+    .feature h3{margin:0 0 6px;font-size:16px;color:var(--blue-900)}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:#fff;
+      overflow:hidden;
+      box-shadow:0 12px 28px rgba(11,42,111,.08);
+    }
+    .card .top{
+      padding:18px;
+      background:linear-gradient(180deg, rgba(234,241,255,.9), rgba(255,255,255,.7));
+      border-bottom:1px solid var(--border);
+    }
+    .card h3{margin:0;color:var(--blue-900);font-size:18px}
+    .card .body{padding:18px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .tag{
+      display:inline-flex;align-items:center;gap:8px;
+      margin-top:12px;
+      background:#fff;
+      border:1px solid var(--border);
+      padding:8px 10px;border-radius:999px;
+      font-weight:700;font-size:13px;color:var(--blue-900);
+    }
+
+    /* CTA */
+    .cta{
+      padding:0;
+    }
+    .cta-wrap{
+      border:1px solid var(--border);
+      border-radius:24px;
+      background:linear-gradient(135deg, rgba(234,241,255,.95), #fff);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .cta-inner{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+      padding:26px;
+      align-items:center;
+    }
+    .cta-inner h2{margin:0 0 8px;color:var(--blue-900);font-size:26px}
+    .cta-inner p{margin:0;color:var(--muted)}
+    .cta-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .note{
+      font-size:13px;color:var(--muted);
+      margin-top:10px
+    }
+
+    /* Footer */
+    footer{
+      border-top:1px solid var(--border);
+      padding:28px 0;
+      background:#fff;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+      align-items:start;
+    }
+    .contact{
+      display:grid;gap:10px;
+      margin-top:10px;
+      color:var(--muted);
+      font-weight:600;
+    }
+    .contact .row{display:flex;gap:10px;align-items:flex-start}
+    .contact svg{flex:0 0 18px;margin-top:2px;fill:var(--blue-700)}
+    .copyright{margin-top:14px;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr;gap:16px}
+      h1{font-size:38px}
+      .cta-inner{grid-template-columns:1fr}
+      .cta-actions{justify-content:flex-start}
+    }
+    @media (max-width: 780px){
+      nav ul{display:none}
+      .burger{display:flex}
+      .features{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      section{padding:44px 0}
+      h1{font-size:34px}
+    }
   </style>
 </head>
+
 <body>
-<p class="p1">&lt;!doctype html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Welmenz Business Group — Ethiopian-Based Gemstone Exporter&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="Welmenz Business Group is an Ethiopian-based gemstone exporter providing authentic stones, transparent sourcing, and reliable export services." /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>:root{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--blue-900:#0b2a6f;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--blue-800:#123a9a;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--blue-700:#1f55d1;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--blue-600:#2e6bff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--blue-100:#eaf1ff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--text:#0a1020;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--muted:#56607a;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--border:rgba(11,42,111,.12);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--shadow:0 12px 30px rgba(11,42,111,.10);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--radius:16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--max:1100px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>*{box-sizing:border-box}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>html,body{margin:0;padding:0}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.5;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>a{color:inherit;text-decoration:none}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>img{max-width:100%;display:block}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 18px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:inline-flex;align-items:center;justify-content:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:var(--blue-800);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.18);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:12px 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 10px 24px rgba(18,58,154,.18);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition:transform .15s ease, filter .15s ease;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>white-space:nowrap;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn:hover{transform:translateY(-1px);filter:brightness(1.03)}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn.secondary{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fff;color:var(--blue-900);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:none;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Top bar */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>header{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position:sticky;top:0;z-index:50;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(255,255,255,.86);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter:saturate(140%) blur(10px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:flex;align-items:center;justify-content:space-between;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height:72px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.brand{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:flex;align-items:center;gap:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:.2px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.brand-logo{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:44px;height:44px;border-radius:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:linear-gradient(180deg, #ffffff 0%, var(--blue-100) 100%);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;place-items:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.brand-logo img{width:100%;height:100%;object-fit:contain;padding:6px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.brand span{font-size:18px}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav a{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:10px 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav a:hover{background:rgba(11,42,111,.06);color:var(--blue-900)}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav-cta{display:flex;gap:10px;align-items:center}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Mobile menu */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.burger{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:44px;height:44px;border-radius:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);background:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;justify-content:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.burger svg{width:22px;height:22px;fill:var(--blue-900)}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.mobile-panel{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-top:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.mobile-panel .container{padding:14px 18px 18px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.mobile-panel a{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:block;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:12px 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:var(--blue-900);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:700;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.mobile-panel a:hover{background:rgba(11,42,111,.06)}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.mobile-panel .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Hero */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position:relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:68px 0 44px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero::before{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>content:"";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position:absolute;inset:-200px -100px auto -100px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height:520px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:</p>
-<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(600px 300px at 20% 30%, rgba(46,107,255,.18), transparent 60%),</p>
-<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(500px 260px at 80% 20%, rgba(18,58,154,.14), transparent 60%),</p>
-<p class="p1"><span class="Apple-converted-space">        </span>linear-gradient(180deg, rgba(234,241,255,.70), rgba(255,255,255,0));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>pointer-events:none;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-grid{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position:relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:1.15fr .85fr;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:26px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.kicker{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:inline-flex;align-items:center;gap:10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;color:var(--blue-900);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(234,241,255,.9);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:8px 12px;border-radius:999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:fit-content;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.kicker .dot{width:10px;height:10px;border-radius:50%;background:var(--blue-700)}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h1{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:14px 0 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:44px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.06;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-.6px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:var(--blue-900);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.lead{margin:0 0 18px;color:var(--muted);font-size:18px;max-width:58ch}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-card{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:var(--radius);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:var(--shadow);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-card .pad{padding:18px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.statgrid{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:1fr 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:8px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.stat{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:linear-gradient(180deg, #fff, rgba(234,241,255,.6));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:12px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.stat b{display:block;color:var(--blue-900);font-size:14px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.stat span{display:block;color:var(--muted);font-size:13px;margin-top:4px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.mini{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:flex;gap:10px;align-items:flex-start;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);font-size:14px;margin:12px 0 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.mini svg{flex:0 0 18px;margin-top:2px;fill:var(--blue-700)}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Sections */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>section{padding:54px 0}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section-title{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:28px;letter-spacing:-.3px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:0 0 10px;color:var(--blue-900);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section-sub{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:0 0 24px;color:var(--muted);max-width:78ch</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.pill{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;font-weight:700;color:var(--blue-900);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(234,241,255,.9);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:8px 10px;border-radius:999px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.features{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:repeat(3,1fr);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:22px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.feature{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:var(--radius);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 10px 22px rgba(11,42,111,.06);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.feature .icon{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:44px;height:44px;border-radius:14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(234,241,255,.9);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;place-items:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:12px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.feature .icon svg{width:22px;height:22px;fill:var(--blue-800)}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.feature h3{margin:0 0 6px;font-size:16px;color:var(--blue-900)}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.feature p{margin:0;color:var(--muted);font-size:14px}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.cards{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:repeat(3,1fr);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:14px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:var(--radius);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 12px 28px rgba(11,42,111,.08);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card .top{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:linear-gradient(180deg, rgba(234,241,255,.9), rgba(255,255,255,.7));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card h3{margin:0;color:var(--blue-900);font-size:18px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card .body{padding:18px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card p{margin:0;color:var(--muted);font-size:14px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.tag{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:inline-flex;align-items:center;gap:8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:8px 10px;border-radius:999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:700;font-size:13px;color:var(--blue-900);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* CTA */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.cta{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.cta-wrap{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:24px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:linear-gradient(135deg, rgba(234,241,255,.95), #fff);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:var(--shadow);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.cta-inner{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:1.2fr .8fr;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:26px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.cta-inner h2{margin:0 0 8px;color:var(--blue-900);font-size:26px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.cta-inner p{margin:0;color:var(--muted)}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.cta-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.note{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;color:var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:10px</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Footer */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>footer{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-top:1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:28px 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.footer-grid{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:1.2fr .8fr;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items:start;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.contact{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;gap:10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:600;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.contact .row{display:flex;gap:10px;align-items:flex-start}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.contact svg{flex:0 0 18px;margin-top:2px;fill:var(--blue-700)}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.copyright{margin-top:14px;color:var(--muted);font-size:13px}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Responsive */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 920px){</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero-grid{grid-template-columns:1fr;gap:16px}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>h1{font-size:38px}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.cta-inner{grid-template-columns:1fr}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.cta-actions{justify-content:flex-start}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 780px){</p>
-<p class="p1"><span class="Apple-converted-space">      </span>nav ul{display:none}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.burger{display:flex}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.features{grid-template-columns:1fr}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.cards{grid-template-columns:1fr}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.footer-grid{grid-template-columns:1fr}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>section{padding:44px 0}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>h1{font-size:34px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- HEADER --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container nav"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="brand" href="#top" aria-label="Welmenz Business Group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="brand-logo" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;!-- Replace with your logo file path --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;!-- Example: &lt;img src="assets/welmenz-logo.png" alt="Welmenz Logo"&gt; --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;img src="welmenz-logo.png" alt="Welmenz Logo" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;Welmenz Business Group&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/a&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;nav aria-label="Primary"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;a href="#products"&gt;Opal Products&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;a href="#process"&gt;How We Work&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="nav-cta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;svg viewBox="0 0 24 24" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="btn" href="#contact"&gt;Get in Touch&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Mobile panel --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="mobile-panel" id="mobilePanel" hidden&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#about"&gt;About&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#products"&gt;Opal Products&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#process"&gt;How We Work&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#contact"&gt;Contact&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn" href="#contact"&gt;Request a Quote&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn secondary" href="#products"&gt;View Products&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- HERO --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;main id="top" class="hero"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hero-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="kicker"&gt;&lt;span class="dot"&gt;&lt;/span&gt; Ethiopian-Based Gemstone Exporter&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h1&gt;Infinite Opportunity, &lt;br/&gt;Chosen with Confidence&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="lead"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>Welmenz Business Group operates at the source of Africa’s most sought-after gemstones.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>We provide authentic stones, transparent sourcing, and reliable export services that meet international standards.</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="hero-actions"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="btn" href="#contact"&gt;Contact Sales&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="btn secondary" href="#products"&gt;Explore Opal Products&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="pillrow" aria-label="Highlights"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="pill"&gt;Ethical sourcing&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="pill"&gt;Export-ready stock&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="pill"&gt;Transparent grading&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="pill"&gt;Client-led selection&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;aside class="hero-card" aria-label="Quick summary"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="pad"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;b style="color:var(--blue-900);font-size:16px;"&gt;What we deliver&lt;/b&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="margin:6px 0 0;color:var(--muted);font-size:14px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>Professional handling from origin to export, with flexible options based on your buying process.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="statgrid" role="list" aria-label="Key points"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="stat" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;b&gt;Direct-from-origin&lt;/b&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Authentic Ethiopian opal supply&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="stat" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;b&gt;Export-ready&lt;/b&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Stock maintained for shipment&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="stat" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;b&gt;Transparent sourcing&lt;/b&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Ethical &amp; traceable approach&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="stat" role="listitem"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;b&gt;Client-centric&lt;/b&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;On-hand or in-person selection&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;svg viewBox="0 0 24 24" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;&lt;b style="color:var(--blue-900)"&gt;Addis Ababa, Ethiopia&lt;/b&gt; — serving international clients with reliable export logistics.&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/aside&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- ABOUT --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="about"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 class="section-title"&gt;About Welmenz&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="section-sub"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Welmenz Business Group is an Ethiopian-based gemstone exporter operating at the source of some of Africa’s</p>
-<p class="p1"><span class="Apple-converted-space">        </span>most sought-after gemstones. By working directly from origin, we provide our clients with authentic stones,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>transparent sourcing, and reliable export services that meet international standards.</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="features"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feature"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="icon" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M12 2 1 7l11 5 9-4.09V17h2V7L12 2zm0 12L3 9v8l9 5 9-5V9l-9 5z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Authentic Stones&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Selected for authenticity and export readiness, with clear product descriptions and grading expectations.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feature"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="icon" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99L19 8v3c0 4.43-2.92 8.63-7 9.9-4.08-1.27-7-5.47-7-9.9V8l7 3.99z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Ethical Sourcing&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Professional handling and customer-centric processes designed to build long-term trust.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feature"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="icon" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M20 8h-3V4H7v4H4L2 12l2 4h3v4h10v-4h3l2-4-2-4zm-5 10H9v-6h6v6zm2-10H7V6h10v2z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Reliable Export&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Export-ready stones and flexible options—ship immediately or participate in selection personally.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- PRODUCTS --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="products" style="background:linear-gradient(180deg, #fff, rgba(234,241,255,.55), #fff);"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 class="section-title"&gt;Opal Products — Available for Direct Export&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="section-sub"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>All opal products listed below are maintained in stock and can be exported directly.</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="cards"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;article class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="top"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Rough Opal&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>Sourced directly from Ethiopian opal fields, ideal for cutters, collectors, and wholesalers.</p>
-<p class="p1"><span class="Apple-converted-space">              </span>Each parcel is selected for authenticity and export readiness.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Export-ready parcels&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;article class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="top"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Crystal Opal&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>Ethiopian crystal opals known for transparency and vibrant play-of-color.</p>
-<p class="p1"><span class="Apple-converted-space">              </span>Carefully graded and prepared to meet global jewelry manufacturing expectations.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Graded &amp; prepared&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;article class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="top"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Polished Opal&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>Professionally cut and polished to highlight brilliance, color depth, and durability.</p>
-<p class="p1"><span class="Apple-converted-space">              </span>Finished gemstones ready for export, retail, or manufacturing use.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Finished gemstones&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/article&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- PROCESS --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="process"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 class="section-title"&gt;How We Work&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="section-sub"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Our approach combines ethical sourcing, professional handling, and customer-centric processes.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>Choose the buying experience that best fits your operation.</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="features"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feature"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="icon" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M21 7H3V5h18v2zm0 4H3V9h18v2zm0 4H3v-2h18v2zm0 4H3v-2h18v2z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Request &amp; Requirements&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Share size, grade, type (rough/crystal/polished), quantity, and destination requirements.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feature"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="icon" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6zm0-4C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Selection Options&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Buy export-ready stock immediately, or participate personally in stone selection when preferred.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="feature"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="icon" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M20 8h-3V4H7v4H4L2 12l2 4h3v4h10v-4h3l2-4-2-4zm-5-2v2H9V6h6zm4 8H5l-1-2 1-2h14l1 2-1 2z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Packaging &amp; Export&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Professional handling, packing, and reliable export coordination aligned with international standards.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- CTA --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="cta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="cta-wrap"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="cta-inner"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Ready to source Ethiopian opal?&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Tell us what you need and we’ll respond with availability, options, and the next steps for export.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="note"&gt;Fast response • Clear requirements • Professional export support&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="cta-actions"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="btn" href="#contact"&gt;Request a Quote&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="btn secondary" href="#products"&gt;View Products&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- CONTACT / FOOTER --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer id="contact"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="footer-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="brand" style="gap:10px"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="brand-logo" aria-hidden="true"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;img src="welmenz-logo.png" alt="Welmenz Logo" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;Welmenz Business Group&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p style="margin:10px 0 0;color:var(--muted);max-width:70ch"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>Ethiopian-based gemstone exporter providing authentic stones, transparent sourcing, and reliable export services.</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="contact" aria-label="Contact details"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;svg viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.21 2.2z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;+251 91 111 0786&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;svg viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;info@welmenz.com&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;svg viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>Cozy Building, 4th Floor #406&lt;br/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>Bole Sub-City, Djibouti Street, Addis Ababa, Ethiopia</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;svg viewBox="0 0 24 24" aria-hidden="true"&gt;&lt;path d="M10.9 2a1 1 0 0 0-.9 1v1H7a5 5 0 0 0-5 5v7a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5v-7a5 5 0 0 0-5-5h-3V3a1 1 0 0 0-1-1h-2.1zM7 7h10a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3zm2 3a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2H9z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;www.Welmenz.com&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="copyright"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>© &lt;span id="year"&gt;&lt;/span&gt; Welmenz Business Group. All rights reserved.</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div style="border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 12px 28px rgba(11,42,111,.06);"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;b style="color:var(--blue-900);font-size:16px;"&gt;Send a message&lt;/b&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="margin:6px 0 14px;color:var(--muted);font-size:14px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>Share your requirements and preferred selection method.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Simple form (static HTML). Hook to your backend/email service later --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;form onsubmit="event.preventDefault(); alert('Thanks! Please connect this form to your email/backend.');"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;div style="display:grid;gap:10px"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;input required placeholder="Your name" style="padding:12px 12px;border-radius:12px;border:1px solid var(--border);outline:none" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;input required type="email" placeholder="Email address" style="padding:12px 12px;border-radius:12px;border:1px solid var(--border);outline:none" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;textarea required rows="4" placeholder="What are you looking for? (Rough / Crystal / Polished, quantity, destination)"</p>
-<p class="p1"><span class="Apple-converted-space">                  </span>style="padding:12px 12px;border-radius:12px;border:1px solid var(--border);outline:none;resize:vertical"&gt;&lt;/textarea&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn" type="submit" style="width:100%"&gt;Submit&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/form&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="margin:12px 0 0;color:var(--muted);font-size:12px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>Tip: Add WhatsApp / Telegram link here if you want faster communication.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Mobile menu toggle</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const burger = document.getElementById('burger');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const panel = document.getElementById('mobilePanel');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>burger?.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const expanded = burger.getAttribute('aria-expanded') === 'true';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>burger.setAttribute('aria-expanded', String(!expanded));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>panel.hidden = expanded;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>panel.style.display = expanded ? 'none' : 'block';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Close mobile panel on link click</p>
-<p class="p1"><span class="Apple-converted-space">    </span>panel?.addEventListener('click', (e) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const target = e.target;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (target &amp;&amp; target.tagName === 'A') {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>burger.setAttribute('aria-expanded', 'false');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>panel.hidden = true;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>panel.style.display = 'none';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Footer year</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('year').textContent = new Date().getFullYear();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Welmenz Business Group">
+        <div class="brand-logo" aria-hidden="true">
+          <!-- Replace with your logo file path -->
+          <!-- Example: <img src="assets/welmenz-logo.png" alt="Welmenz Logo"> -->
+          <img src="welmenz-logo.png" alt="Welmenz Logo" />
+        </div>
+        <span>Welmenz Business Group</span>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Opal Products</a></li>
+          <li><a href="#process">How We Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/>
+          </svg>
+        </button>
+        <a class="btn" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- Mobile panel -->
+    <div class="mobile-panel" id="mobilePanel" hidden>
+      <div class="container">
+        <a href="#about">About</a>
+        <a href="#products">Opal Products</a>
+        <a href="#process">How We Work</a>
+        <a href="#contact">Contact</a>
+        <div class="row">
+          <a class="btn" href="#contact">Request a Quote</a>
+          <a class="btn secondary" href="#products">View Products</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker"><span class="dot"></span> Ethiopian-Based Gemstone Exporter</div>
+          <h1>Infinite Opportunity, <br/>Chosen with Confidence</h1>
+          <p class="lead">
+            Welmenz Business Group operates at the source of Africa’s most sought-after gemstones.
+            We provide authentic stones, transparent sourcing, and reliable export services that meet international standards.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Contact Sales</a>
+            <a class="btn secondary" href="#products">Explore Opal Products</a>
+          </div>
+
+          <div class="pillrow" aria-label="Highlights">
+            <span class="pill">Ethical sourcing</span>
+            <span class="pill">Export-ready stock</span>
+            <span class="pill">Transparent grading</span>
+            <span class="pill">Client-led selection</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Quick summary">
+          <div class="pad">
+            <b style="color:var(--blue-900);font-size:16px;">What we deliver</b>
+            <p style="margin:6px 0 0;color:var(--muted);font-size:14px;">
+              Professional handling from origin to export, with flexible options based on your buying process.
+            </p>
+
+            <div class="statgrid" role="list" aria-label="Key points">
+              <div class="stat" role="listitem">
+                <b>Direct-from-origin</b>
+                <span>Authentic Ethiopian opal supply</span>
+              </div>
+              <div class="stat" role="listitem">
+                <b>Export-ready</b>
+                <span>Stock maintained for shipment</span>
+              </div>
+              <div class="stat" role="listitem">
+                <b>Transparent sourcing</b>
+                <span>Ethical & traceable approach</span>
+              </div>
+              <div class="stat" role="listitem">
+                <b>Client-centric</b>
+                <span>On-hand or in-person selection</span>
+              </div>
+            </div>
+
+            <div class="mini">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
+              </svg>
+              <span><b style="color:var(--blue-900)">Addis Ababa, Ethiopia</b> — serving international clients with reliable export logistics.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Welmenz</h2>
+      <p class="section-sub">
+        Welmenz Business Group is an Ethiopian-based gemstone exporter operating at the source of some of Africa’s
+        most sought-after gemstones. By working directly from origin, we provide our clients with authentic stones,
+        transparent sourcing, and reliable export services that meet international standards.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.09V17h2V7L12 2zm0 12L3 9v8l9 5 9-5V9l-9 5z"/></svg>
+          </div>
+          <h3>Authentic Stones</h3>
+          <p>Selected for authenticity and export readiness, with clear product descriptions and grading expectations.</p>
+        </div>
+
+        <div class="feature">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99L19 8v3c0 4.43-2.92 8.63-7 9.9-4.08-1.27-7-5.47-7-9.9V8l7 3.99z"/></svg>
+          </div>
+          <h3>Ethical Sourcing</h3>
+          <p>Professional handling and customer-centric processes designed to build long-term trust.</p>
+        </div>
+
+        <div class="feature">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H7v4H4L2 12l2 4h3v4h10v-4h3l2-4-2-4zm-5 10H9v-6h6v6zm2-10H7V6h10v2z"/></svg>
+          </div>
+          <h3>Reliable Export</h3>
+          <p>Export-ready stones and flexible options—ship immediately or participate in selection personally.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" style="background:linear-gradient(180deg, #fff, rgba(234,241,255,.55), #fff);">
+    <div class="container">
+      <h2 class="section-title">Opal Products — Available for Direct Export</h2>
+      <p class="section-sub">
+        All opal products listed below are maintained in stock and can be exported directly.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <div class="top">
+            <h3>Rough Opal</h3>
+          </div>
+          <div class="body">
+            <p>
+              Sourced directly from Ethiopian opal fields, ideal for cutters, collectors, and wholesalers.
+              Each parcel is selected for authenticity and export readiness.
+            </p>
+            <span class="tag">Export-ready parcels</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="top">
+            <h3>Crystal Opal</h3>
+          </div>
+          <div class="body">
+            <p>
+              Ethiopian crystal opals known for transparency and vibrant play-of-color.
+              Carefully graded and prepared to meet global jewelry manufacturing expectations.
+            </p>
+            <span class="tag">Graded & prepared</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="top">
+            <h3>Polished Opal</h3>
+          </div>
+          <div class="body">
+            <p>
+              Professionally cut and polished to highlight brilliance, color depth, and durability.
+              Finished gemstones ready for export, retail, or manufacturing use.
+            </p>
+            <span class="tag">Finished gemstones</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <h2 class="section-title">How We Work</h2>
+      <p class="section-sub">
+        Our approach combines ethical sourcing, professional handling, and customer-centric processes.
+        Choose the buying experience that best fits your operation.
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 7H3V5h18v2zm0 4H3V9h18v2zm0 4H3v-2h18v2zm0 4H3v-2h18v2z"/></svg>
+          </div>
+          <h3>Request & Requirements</h3>
+          <p>Share size, grade, type (rough/crystal/polished), quantity, and destination requirements.</p>
+        </div>
+
+        <div class="feature">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6zm0-4C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+          </div>
+          <h3>Selection Options</h3>
+          <p>Buy export-ready stock immediately, or participate personally in stone selection when preferred.</p>
+        </div>
+
+        <div class="feature">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H7v4H4L2 12l2 4h3v4h10v-4h3l2-4-2-4zm-5-2v2H9V6h6zm4 8H5l-1-2 1-2h14l1 2-1 2z"/></svg>
+          </div>
+          <h3>Packaging & Export</h3>
+          <p>Professional handling, packing, and reliable export coordination aligned with international standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-wrap">
+        <div class="cta-inner">
+          <div>
+            <h2>Ready to source Ethiopian opal?</h2>
+            <p>Tell us what you need and we’ll respond with availability, options, and the next steps for export.</p>
+            <div class="note">Fast response • Clear requirements • Professional export support</div>
+          </div>
+          <div class="cta-actions">
+            <a class="btn" href="#contact">Request a Quote</a>
+            <a class="btn secondary" href="#products">View Products</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="gap:10px">
+            <div class="brand-logo" aria-hidden="true">
+              <img src="welmenz-logo.png" alt="Welmenz Logo" />
+            </div>
+            <span>Welmenz Business Group</span>
+          </div>
+          <p style="margin:10px 0 0;color:var(--muted);max-width:70ch">
+            Ethiopian-based gemstone exporter providing authentic stones, transparent sourcing, and reliable export services.
+          </p>
+
+          <div class="contact" aria-label="Contact details">
+            <div class="row">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.21 2.2z"/></svg>
+              <span>+251 91 111 0786</span>
+            </div>
+
+            <div class="row">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span>info@welmenz.com</span>
+            </div>
+
+            <div class="row">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+              <span>
+                Cozy Building, 4th Floor #406<br/>
+                Bole Sub-City, Djibouti Street, Addis Ababa, Ethiopia
+              </span>
+            </div>
+
+            <div class="row">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.9 2a1 1 0 0 0-.9 1v1H7a5 5 0 0 0-5 5v7a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5v-7a5 5 0 0 0-5-5h-3V3a1 1 0 0 0-1-1h-2.1zM7 7h10a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3zm2 3a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2H9z"/></svg>
+              <span>www.Welmenz.com</span>
+            </div>
+          </div>
+
+          <div class="copyright">
+            © <span id="year"></span> Welmenz Business Group. All rights reserved.
+          </div>
+        </div>
+
+        <div>
+          <div style="border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 12px 28px rgba(11,42,111,.06);">
+            <b style="color:var(--blue-900);font-size:16px;">Send a message</b>
+            <p style="margin:6px 0 14px;color:var(--muted);font-size:14px;">
+              Share your requirements and preferred selection method.
+            </p>
+
+            <!-- Simple form (static HTML). Hook to your backend/email service later -->
+            <form onsubmit="event.preventDefault(); alert('Thanks! Please connect this form to your email/backend.');">
+              <div style="display:grid;gap:10px">
+                <input required placeholder="Your name" style="padding:12px 12px;border-radius:12px;border:1px solid var(--border);outline:none" />
+                <input required type="email" placeholder="Email address" style="padding:12px 12px;border-radius:12px;border:1px solid var(--border);outline:none" />
+                <textarea required rows="4" placeholder="What are you looking for? (Rough / Crystal / Polished, quantity, destination)"
+                  style="padding:12px 12px;border-radius:12px;border:1px solid var(--border);outline:none;resize:vertical"></textarea>
+                <button class="btn" type="submit" style="width:100%">Submit</button>
+              </div>
+            </form>
+
+            <p style="margin:12px 0 0;color:var(--muted);font-size:12px;">
+              Tip: Add WhatsApp / Telegram link here if you want faster communication.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const burger = document.getElementById('burger');
+    const panel = document.getElementById('mobilePanel');
+    burger?.addEventListener('click', () => {
+      const expanded = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!expanded));
+      panel.hidden = expanded;
+      panel.style.display = expanded ? 'none' : 'block';
+    });
+
+    // Close mobile panel on link click
+    panel?.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target && target.tagName === 'A') {
+        burger.setAttribute('aria-expanded', 'false');
+        panel.hidden = true;
+        panel.style.display = 'none';
+      }
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
