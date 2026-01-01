@@ -156,11 +156,36 @@
     .mobile .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 
     /* ----------- Hero ----------- */
-    .hero{
-      position:relative;
-      padding:72px 0 30px;
-      z-index:1;
-    }
+   .hero{
+  position:relative;
+  padding:96px 0 54px;
+  z-index:1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.88),
+      rgba(255,255,255,.94)
+    ),
+    url("hero-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+    .hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(
+      600px 240px at 50% 30%,
+      rgba(31,85,209,.08),
+      transparent 60%
+    );
+  pointer-events:none;
+}
+    
     .hero h1{
       margin:0;
       font-size:46px;
