@@ -258,6 +258,52 @@
     .service h3{margin:0;font-size:18px;color:#11152a}
     .service p{margin:8px 0 0;color:var(--muted);font-weight:700;font-size:14px}
 
+
+    /* How it works – clean mobile layout */
+.how-it-works{
+  padding:20px;
+}
+
+.how-title{
+  display:block;
+  font-size:16px;
+  margin-bottom:12px;
+}
+
+.steps{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:12px;
+}
+
+.steps li{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.step-num{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background: rgba(31,85,209,.12);
+  color: var(--blue2);
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.step-text{
+  font-weight:700;
+  color: var(--ink);
+  font-size:14.5px;
+}
+
+
     /* ----------- Bottom contact strip ----------- */
     .bottomStrip{
       padding:22px 0 44px;
@@ -565,12 +611,25 @@
     </div>
 
     <div style="margin-top:16px;display:grid;gap:10px;max-width:900px;margin-left:auto;margin-right:auto;">
-      <div class="feature" style="text-align:left">
-        <b style="font-size:15px;">How it works</b>
-        <p style="margin-top:8px;">
-          <b>1)</b> Appointment & requirements → <b>2)</b> Office selection → <b>3)</b> Export facilitation & shipment
-        </p>
-      </div>
+      <div class="feature how-it-works">
+  <b class="how-title">How it works</b>
+
+  <ol class="steps">
+    <li>
+      <span class="step-num">1</span>
+      <span class="step-text">Appointment & requirements</span>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <span class="step-text">Office selection</span>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <span class="step-text">Export facilitation & shipment</span>
+    </li>
+  </ol>
+</div>
+
     </div>
   </div>
 </section>
