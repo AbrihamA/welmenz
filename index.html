@@ -236,12 +236,21 @@
       transition:.15s ease;
     }
     .service:hover{transform:translateY(-2px)}
+
+    /* UPDATED: Image wrapper now holds a real <img> */
     .service .img{
       height:170px;
-      background:
-        radial-gradient(500px 200px at 20% 10%, rgba(31,85,209,.18), transparent 60%),
-        linear-gradient(135deg, rgba(11,11,13,.08), rgba(255,255,255,0));
+      overflow:hidden;
+      background: #f3f5fb; /* fallback if image fails */
     }
+    .service .img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;     /* fills nicely */
+      object-position:center;
+      display:block;
+    }
+
     .service .content{padding:16px}
     .service h3{margin:0;font-size:18px;color:#11152a}
     .service p{margin:8px 0 0;color:var(--muted);font-weight:700;font-size:14px}
@@ -314,7 +323,6 @@
           <div class="logo"><img src="logo.png" alt="Welmenz logo"></div>
           <div>
             <b>Welmenz Business Group</b>
-
           </div>
         </a>
 
@@ -422,7 +430,9 @@
 
         <div class="services">
           <article class="service">
-            <div class="img"></div>
+            <div class="img">
+              <img src="rough.png" alt="Rough Ethiopian opal stones" loading="lazy">
+            </div>
             <div class="content">
               <h3>Rough Opal</h3>
               <p>
@@ -433,7 +443,9 @@
           </article>
 
           <article class="service">
-            <div class="img"></div>
+            <div class="img">
+              <img src="crystal.png" alt="Crystal Ethiopian opal gemstones" loading="lazy">
+            </div>
             <div class="content">
               <h3>Crystal Opal</h3>
               <p>
@@ -444,7 +456,9 @@
           </article>
 
           <article class="service">
-            <div class="img"></div>
+            <div class="img">
+              <img src="polished.png" alt="Polished Ethiopian opal gemstones" loading="lazy">
+            </div>
             <div class="content">
               <h3>Polished Opal</h3>
               <p>
