@@ -2,107 +2,135 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Welmenz Business Group — Ethiopian-Based Gemstone Exporter</title>
   <meta name="description" content="Welmenz Business Group is an Ethiopian-based gemstone exporter providing authentic stones, transparent sourcing, and reliable export services that meet international standards." />
 
   <style>
-    /* Brand ratio: White 60% | Black 30% | Blue 10% */
     :root{
-      --bg:#ffffff;           /* White */
-      --ink:#0b0b0d;          /* Black */
-      --muted:#5b5b66;        /* Soft black */
-      --blue:#1f55d1;         /* Accent blue (10%) */
-      --blue-2:#0f3fb5;
+      /* Brand ratio target: White 60% | Black 30% | Blue 10% */
+      --bg:#ffffff;
+      --ink:#0b0b0d;
+      --muted:#5c5f6a;
       --line:rgba(11,11,13,.10);
-      --soft:rgba(11,11,13,.04);
-      --radius:16px;
-      --shadow:0 14px 40px rgba(11,11,13,.12);
+
+      --blue:#1f55d1;
+      --blue2:#0f3fb5;
+
+      --shadow:0 18px 50px rgba(11,11,13,.10);
+      --shadow2:0 12px 28px rgba(11,11,13,.08);
+
       --max:1120px;
     }
 
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
+    html{scroll-behavior:smooth}
+
     body{
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background:var(--bg);
-      color:var(--ink);
-      line-height:1.55;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
     }
+
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:var(--max);margin:0 auto;padding:0 18px}
-    .sr-only{position:absolute;left:-9999px}
 
-    /* Buttons */
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 16px;border-radius:14px;
-      font-weight:700;font-size:14px;
-      border:1px solid transparent;
-      cursor:pointer;
-      transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
-      white-space:nowrap;
+    /* ===== Anchor offset (fixes sticky header overlap reliably) ===== */
+    .anchor{
+      display:block;
+      position:relative;
+      top:-96px;   /* slightly > header height (78px). 96px is safe */
+      height:0;
+      visibility:hidden;
     }
-    .btn.primary{
-      background:var(--blue);
-      color:#fff;
-      box-shadow:0 12px 26px rgba(31,85,209,.22);
-    }
-    .btn.primary:hover{background:var(--blue-2);transform:translateY(-1px)}
-    .btn.ghost{
-      background:#fff;color:var(--ink);
-      border-color:var(--line);
-    }
-    .btn.ghost:hover{background:var(--soft);transform:translateY(-1px)}
-    .chip{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 12px;border-radius:999px;
-      border:1px solid var(--line);
-      background:#fff;
-      color:var(--ink);
-      font-weight:700;font-size:12px;
-    }
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}
 
-    /* Header */
+    /* ----------- Background (soft wave concept) ----------- */
+    .soft-bg{
+      background:
+        radial-gradient(900px 380px at 15% 20%, rgba(31,85,209,.14), transparent 60%),
+        radial-gradient(800px 360px at 80% 15%, rgba(31,85,209,.10), transparent 60%),
+        radial-gradient(700px 320px at 70% 70%, rgba(11,11,13,.06), transparent 60%),
+        linear-gradient(180deg, rgba(31,85,209,.06), rgba(255,255,255,0) 55%);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .soft-bg::after{
+      content:"";
+      position:absolute; inset:140px -30% -35% -30%;
+      background:
+        radial-gradient(1000px 400px at 30% 40%, rgba(31,85,209,.12), transparent 60%),
+        radial-gradient(900px 380px at 70% 60%, rgba(31,85,209,.10), transparent 62%);
+      transform: skewY(-4deg);
+      opacity:.75;
+      pointer-events:none;
+    }
+
+    /* ----------- Header ----------- */
     header{
-      position:sticky;top:0;z-index:50;
-      background:rgba(255,255,255,.86);
-      backdrop-filter:saturate(140%) blur(10px);
-      border-bottom:1px solid var(--line);
+      position:sticky; top:0; z-index:50;
+      background: rgba(255,255,255,.75);
+      backdrop-filter: blur(10px) saturate(140%);
+      border-bottom: 1px solid var(--line);
     }
+
     .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      height:74px;
+      height:78px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
     }
+
     .brand{
       display:flex;align-items:center;gap:12px;
-      font-weight:900;letter-spacing:.2px;
+      min-width:240px;
     }
-    .brand-mark{
-      width:44px;height:44px;border-radius:12px;
-      border:1px solid var(--line);
+
+    .brand .logo{
+      width:48px;height:48px;border-radius:14px;
       background:#fff;
+      border:1px solid var(--line);
       display:grid;place-items:center;
       overflow:hidden;
     }
-    .brand-mark img{width:100%;height:100%;object-fit:contain;padding:6px}
-    .brand-name{display:flex;flex-direction:column;line-height:1.1}
-    .brand-name b{font-size:16px}
-    .brand-name span{font-size:12px;color:var(--muted);font-weight:700}
+    .brand .logo img{width:100%;height:100%;object-fit:contain;padding:7px}
+    .brand b{font-size:18px;letter-spacing:-.2px}
 
-    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
-    nav a{
-      font-weight:800;font-size:13px;
+    .menu{
+      display:flex;gap:16px;align-items:center;
       color:var(--muted);
-      padding:10px 10px;border-radius:12px;
+      font-weight:800;
+      font-size:14px;
     }
-    nav a:hover{background:var(--soft);color:var(--ink)}
+    .menu a{padding:10px 12px;border-radius:12px}
+    .menu a:hover{background:rgba(11,11,13,.05);color:var(--ink)}
 
-    .nav-right{display:flex;align-items:center;gap:10px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 16px;border-radius:14px;
+      font-weight:900;font-size:14px;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.15s ease;
+      white-space:nowrap;
+    }
+    .btn.primary{
+      background: var(--blue);
+      color:#fff;
+      box-shadow:0 16px 34px rgba(31,85,209,.22);
+    }
+    .btn.primary:hover{background:var(--blue2);transform:translateY(-1px)}
+    .btn.ghost{
+      background:#fff;
+      border-color:var(--line);
+      color:var(--ink);
+      border:1px solid var(--line);
+    }
+    .btn.ghost:hover{background:rgba(11,11,13,.04);transform:translateY(-1px)}
+
     .burger{
       display:none;
       width:44px;height:44px;border-radius:14px;
@@ -112,601 +140,394 @@
       cursor:pointer;
     }
     .burger svg{width:22px;height:22px;fill:var(--ink)}
-    .mobile-panel{
+
+    .mobile{
       display:none;
       border-top:1px solid var(--line);
       background:#fff;
     }
-    .mobile-panel .container{padding:10px 18px 16px}
-    .mobile-panel a{
-      display:block;
-      padding:12px 12px;border-radius:14px;
-      font-weight:800;color:var(--ink);
-    }
-    .mobile-panel a:hover{background:var(--soft)}
-    .mobile-panel .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .mobile .wrap{padding:12px 18px 16px}
+    .mobile a{display:block;padding:12px;border-radius:12px;font-weight:900}
+    .mobile a:hover{background:rgba(11,11,13,.04)}
+    .mobile .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 
-    /* Hero */
+    /* ----------- Hero ----------- */
     .hero{
-      padding:70px 0 46px;
       position:relative;
-      overflow:hidden;
+      padding:72px 0 30px;
+      z-index:1;
     }
-    .hero::before{
-      content:"";
-      position:absolute;inset:-220px -120px auto -120px;
-      height:560px;
-      background:
-        radial-gradient(520px 260px at 20% 30%, rgba(31,85,209,.12), transparent 62%),
-        radial-gradient(420px 220px at 82% 25%, rgba(11,11,13,.06), transparent 60%),
-        linear-gradient(180deg, rgba(11,11,13,.03), rgba(255,255,255,0));
-      pointer-events:none;
-    }
-    .hero-grid{
-      position:relative;
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:26px;
-      align-items:center;
-    }
-    h1{
-      margin:14px 0 10px;
-      font-size:46px;line-height:1.06;letter-spacing:-.8px;
-    }
-    .lead{
+    .hero h1{
       margin:0;
+      font-size:46px;
+      line-height:1.07;
+      letter-spacing:-1px;
+      color:#11152a;
+    }
+    .hero p{
+      margin:18px auto 0;
       color:var(--muted);
-      font-size:17px;
-      max-width:62ch;
+      font-weight:700;
+      font-size:16.5px;
+      max-width:70ch;
     }
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .heroActions{
+      display:flex;gap:12px;flex-wrap:wrap;
+      margin-top:22px;
+      justify-content:center;
+    }
 
-    .hero-card{
-      border:1px solid var(--line);
-      border-radius:24px;
-      background:#fff;
-      box-shadow:var(--shadow);
-      overflow:hidden;
+    /* ----------- Section titles ----------- */
+    section{padding:54px 0; position:relative; z-index:1;}
+    .centerTitle{
+      text-align:center;
+      max-width:820px;
+      margin:0 auto 18px;
     }
-    .hero-card .top{
-      padding:18px 18px 14px;
-      border-bottom:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(11,11,13,.03), rgba(255,255,255,0));
+    .centerTitle h2{
+      margin:0;
+      font-size:30px;
+      letter-spacing:-.4px;
+      color:#11152a;
     }
-    .hero-card .top b{font-size:14px;letter-spacing:.2px}
-    .hero-card .body{padding:16px 18px 18px}
-    .stats{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-      margin-top:12px;
-    }
-    .stat{
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:12px;
-      background:#fff;
-    }
-    .stat b{display:block;font-size:13px}
-    .stat span{display:block;margin-top:4px;color:var(--muted);font-size:12.5px}
-    .mini-row{
-      display:flex;gap:10px;align-items:flex-start;
-      margin-top:14px;color:var(--muted);font-weight:700;font-size:12.5px;
-    }
-    .mini-row svg{width:18px;height:18px;fill:var(--blue);flex:0 0 auto;margin-top:2px}
-
-    /* Sections */
-    section{padding:56px 0}
-    .section-head{
-      display:flex;align-items:flex-end;justify-content:space-between;
-      gap:16px;flex-wrap:wrap;
-      margin-bottom:18px;
-    }
-    .section-title{
-      margin:0;font-size:28px;letter-spacing:-.3px;
-    }
-    .section-sub{
-      margin:6px 0 0;
+    .centerTitle p{
+      margin:10px auto 0;
       color:var(--muted);
-      max-width:78ch;
+      font-weight:700;
     }
-    .divider{height:1px;background:var(--line);margin:14px 0 0}
 
-    /* Feature row */
-    .feature-grid{
+    /* ----------- Feature row ----------- */
+    .features{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap:14px;
-      margin-top:18px;
     }
     .feature{
-      border:1px solid var(--line);
-      border-radius:18px;
+      background: rgba(255,255,255,.80);
+      border:1px solid rgba(255,255,255,.7);
+      box-shadow: var(--shadow2);
+      border-radius: 22px;
       padding:18px;
-      background:#fff;
-      transition:transform .15s ease, box-shadow .15s ease;
+      text-align:center;
     }
-    .feature:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(11,11,13,.10)}
-    .icon{
-      width:44px;height:44px;border-radius:14px;
-      border:1px solid var(--line);
-      background:#fff;
+    .iconCircle{
+      width:54px;height:54px;border-radius:999px;
+      margin:0 auto 10px;
       display:grid;place-items:center;
-      margin-bottom:12px;
+      border:1px solid rgba(31,85,209,.25);
+      background: rgba(31,85,209,.08);
     }
-    .icon svg{width:22px;height:22px;fill:var(--blue)}
-    .feature h3{margin:0 0 6px;font-size:16px}
-    .feature p{margin:0;color:var(--muted);font-size:14px}
+    .iconCircle svg{width:26px;height:26px;fill:var(--blue2)}
+    .feature b{display:block;font-size:16px}
+    .feature p{margin:8px 0 0;color:var(--muted);font-weight:700;font-size:13.5px}
 
-    /* Product cards */
-    .cards{
+    /* ----------- Services cards ----------- */
+    .services{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:14px;
-      margin-top:18px;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
     }
-    .card{
-      border:1px solid var(--line);
-      border-radius:20px;
+    .service{
       background:#fff;
-      overflow:hidden;
-      box-shadow:0 10px 28px rgba(11,11,13,.08);
-    }
-    .card .bar{
-      height:5px;background:linear-gradient(90deg, var(--blue), rgba(31,85,209,.25));
-    }
-    .card .pad{padding:18px}
-    .card h3{margin:0 0 6px;font-size:18px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-    .meta{
-      display:flex;gap:10px;flex-wrap:wrap;margin-top:12px
-    }
-    .badge{
-      font-size:12px;font-weight:800;color:var(--ink);
       border:1px solid var(--line);
-      background:#fff;
-      padding:7px 10px;border-radius:999px;
-    }
-    .badge.blue{border-color:rgba(31,85,209,.35);color:var(--blue)}
-
-    /* CTA */
-    .cta{
-      padding:0;
-    }
-    .cta-wrap{
-      border:1px solid var(--line);
-      border-radius:28px;
+      border-radius: 22px;
       overflow:hidden;
+      box-shadow: var(--shadow2);
+      transition:.15s ease;
+    }
+    .service:hover{transform:translateY(-2px)}
+    .service .img{
+      height:170px;
       background:
-        radial-gradient(420px 220px at 20% 30%, rgba(31,85,209,.10), transparent 62%),
-        linear-gradient(180deg, rgba(11,11,13,.03), #fff);
-      box-shadow:var(--shadow);
+        radial-gradient(500px 200px at 20% 10%, rgba(31,85,209,.18), transparent 60%),
+        linear-gradient(135deg, rgba(11,11,13,.08), rgba(255,255,255,0));
     }
-    .cta-inner{
-      padding:26px;
+    .service .content{padding:16px}
+    .service h3{margin:0;font-size:18px;color:#11152a}
+    .service p{margin:8px 0 0;color:var(--muted);font-weight:700;font-size:14px}
+
+    /* ----------- Bottom contact strip ----------- */
+    .bottomStrip{
+      padding:22px 0 44px;
+      position:relative;
+      z-index:1;
+    }
+    .strip{
+      background: rgba(255,255,255,.78);
+      border:1px solid rgba(255,255,255,.7);
+      border-radius: 24px;
+      box-shadow: var(--shadow2);
+      padding:16px;
       display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:18px;
+      grid-template-columns: 1.1fr 1fr auto;
+      gap:12px;
       align-items:center;
     }
-    .cta-inner h2{margin:0 0 8px;font-size:26px}
-    .cta-inner p{margin:0;color:var(--muted)}
-    .cta-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-
-    /* Footer */
-    footer{
-      border-top:1px solid var(--line);
-      padding:30px 0;
-      background:#fff;
-    }
-    .footer-grid{
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:18px;
-      align-items:start;
-    }
-    .contact{
-      display:grid;gap:10px;margin-top:12px;
+    .strip .left, .strip .mid{
+      display:grid;gap:8px;
       color:var(--muted);
-      font-weight:700;font-size:13px;
+      font-weight:800;
+      font-size:13.5px;
     }
-    .contact .row{display:flex;gap:10px;align-items:flex-start}
-    .contact svg{width:18px;height:18px;fill:var(--blue);flex:0 0 auto;margin-top:2px}
-    .panel{
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:18px;
-      background:#fff;
-      box-shadow:0 12px 30px rgba(11,11,13,.08);
-    }
-    .panel b{font-size:14px}
-    .field{
-      width:100%;
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:12px 12px;
-      outline:none;
-      font:inherit;
-      background:#fff;
-    }
-    .field:focus{border-color:rgba(31,85,209,.55);box-shadow:0 0 0 4px rgba(31,85,209,.12)}
-    textarea.field{resize:vertical}
-    .fine{margin-top:12px;color:var(--muted);font-size:12px}
+    .lineRow{display:flex;gap:10px;align-items:flex-start}
+    .lineRow svg{width:18px;height:18px;fill:var(--blue2);margin-top:2px;flex:0 0 auto}
+    .strip .cta{display:flex;justify-content:flex-end}
 
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr;gap:16px}
-      h1{font-size:40px}
-      .cta-inner{grid-template-columns:1fr}
-      .cta-actions{justify-content:flex-start}
+    /* ----------- Footer ----------- */
+    .darkZone{
+      background: linear-gradient(180deg, rgba(12,18,36,.0), rgba(12,18,36,.92));
+      padding-top:20px;
+      margin-top:-10px;
     }
-    @media (max-width: 780px){
-      nav ul{display:none}
+    footer{
+      border-top:1px solid rgba(255,255,255,.55);
+      padding:20px 0 26px;
+      color:rgba(255,255,255,.92);
+      position:relative;
+      z-index:1;
+    }
+    .footerInner{
+      display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+      font-weight:800;font-size:12.5px;
+    }
+
+    /* ----------- Responsive ----------- */
+    @media (max-width: 980px){
+      .strip{grid-template-columns:1fr}
+      .strip .cta{justify-content:flex-start}
+    }
+    @media (max-width: 840px){
+      .menu{display:none}
       .burger{display:flex}
-      .feature-grid{grid-template-columns:1fr}
-      .cards{grid-template-columns:1fr}
-      .footer-grid{grid-template-columns:1fr}
-      section{padding:46px 0}
-      h1{font-size:34px}
+      .features{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr}
+      .hero h1{font-size:38px}
     }
   </style>
 </head>
 
 <body>
-  <!--
-    IMPORTANT:
-    Put your logo file in the SAME folder as this HTML and name it exactly:  logowm.jpeg
-    (or change src below to match your filename)
-  -->
-
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="Welmenz Business Group home">
-        <div class="brand-mark" aria-hidden="true">
-          <img src="logowm.jpeg" alt="Welmenz Business Group logo">
-        </div>
-        <div class="brand-name">
-          <b>Welmenz Business Group</b>
-          <span>Ethiopian-Based Gemstone Exporter</span>
-        </div>
-      </a>
-
-      <nav aria-label="Primary navigation">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#products">Opal Products</a></li>
-          <li><a href="#process">How We Work</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div class="nav-right">
-        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/></svg>
-        </button>
-        <a class="btn primary" href="#contact">Get in Touch</a>
-      </div>
-    </div>
-
-    <div class="mobile-panel" id="mobilePanel" hidden>
-      <div class="container">
-        <a href="#about">About</a>
-        <a href="#products">Opal Products</a>
-        <a href="#process">How We Work</a>
-        <a href="#contact">Contact</a>
-        <div class="row">
-          <a class="btn primary" href="#contact">Request a Quote</a>
-          <a class="btn ghost" href="#products">View Products</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main id="top" class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div>
-          <span class="chip"><span class="dot"></span> Source-to-export gemstone supply from Ethiopia</span>
-
-          <h1>Authentic Ethiopian opal, <br>export-ready and professionally handled.</h1>
-
-          <p class="lead">
-            Welmenz Business Group is an Ethiopian-based gemstone exporter operating at the source of some of Africa’s
-            most sought-after gemstones. By working directly from origin, we provide clients with authentic stones,
-            transparent sourcing, and reliable export services that meet international standards.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn primary" href="#contact">Contact Sales</a>
-            <a class="btn ghost" href="#products">Explore Opal Products</a>
-          </div>
-
-          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
-            <span class="chip"><span class="dot"></span> Ethical sourcing</span>
-            <span class="chip"><span class="dot"></span> Transparent grading</span>
-            <span class="chip"><span class="dot"></span> Reliable export</span>
-          </div>
-        </div>
-
-        <aside class="hero-card" aria-label="Key highlights">
-          <div class="top">
-            <b>Why international buyers choose Welmenz</b>
-            <div class="divider"></div>
-          </div>
-          <div class="body">
-            <div class="stats">
-              <div class="stat">
-                <b>Direct-from-origin</b>
-                <span>Working at the source for authenticity and control</span>
-              </div>
-              <div class="stat">
-                <b>Export-ready stock</b>
-                <span>Opal products maintained in stock for direct export</span>
-              </div>
-              <div class="stat">
-                <b>Transparent sourcing</b>
-                <span>Clear handling and buyer-friendly process</span>
-              </div>
-              <div class="stat">
-                <b>Flexible solutions</b>
-                <span>Immediate purchase or buyer participation in selection</span>
-              </div>
-            </div>
-
-            <div class="mini-row">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
-              <span><b style="color:var(--ink)">Addis Ababa, Ethiopia</b> — export support for global clients.</span>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </main>
-
-  <section id="about">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">About Welmenz</h2>
-          <p class="section-sub">
-            Our approach combines ethical sourcing, professional handling, and customer-centric processes.
-            We focus on long-term trust through clear communication, consistent quality, and dependable export execution.
-          </p>
-        </div>
-      </div>
-
-      <div class="feature-grid">
-        <div class="feature">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.09V17h2V7L12 2zm0 12L3 9v8l9 5 9-5V9l-9 5z"/></svg>
-          </div>
-          <h3>Authentic Stones</h3>
-          <p>We operate at origin to provide authentic gemstones with reliable availability and clear expectations.</p>
-        </div>
-
-        <div class="feature">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99L19 8v3c0 4.43-2.92 8.63-7 9.9-4.08-1.27-7-5.47-7-9.9V8l7 3.99z"/></svg>
-          </div>
-          <h3>Ethical & Transparent</h3>
-          <p>Ethical sourcing and professional handling with transparent processes designed for buyer confidence.</p>
-        </div>
-
-        <div class="feature">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H7v4H4L2 12l2 4h3v4h10v-4h3l2-4-2-4zm-5 10H9v-6h6v6zm2-10H7V6h10v2z"/></svg>
-          </div>
-          <h3>Reliable Export</h3>
-          <p>Export-ready products and dependable shipment coordination aligned with international standards.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="products" style="background:linear-gradient(180deg, #fff, rgba(11,11,13,.02), #fff);">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Opal Products — Available for Direct Export</h2>
-          <p class="section-sub">
-            All opal products listed below are maintained in stock and can be exported directly.
-          </p>
-        </div>
-      </div>
-
-      <div class="cards">
-        <article class="card">
-          <div class="bar" aria-hidden="true"></div>
-          <div class="pad">
-            <h3>Rough Opal</h3>
-            <p>
-              Sourced directly from Ethiopian opal fields, ideal for cutters, collectors, and wholesalers.
-              Each parcel is selected for authenticity and export readiness.
-            </p>
-            <div class="meta">
-              <span class="badge blue">Export-ready parcels</span>
-              <span class="badge">Direct from origin</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="bar" aria-hidden="true"></div>
-          <div class="pad">
-            <h3>Crystal Opal</h3>
-            <p>
-              Ethiopian crystal opals known for transparency and vibrant play-of-color.
-              Carefully graded and prepared to meet the expectations of fine jewelry manufacturers worldwide.
-            </p>
-            <div class="meta">
-              <span class="badge blue">Graded & prepared</span>
-              <span class="badge">Manufacturer-ready</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="bar" aria-hidden="true"></div>
-          <div class="pad">
-            <h3>Polished Opal</h3>
-            <p>
-              Professionally cut and polished opals that highlight brilliance, color depth, and durability.
-              Finished gemstones ready for export, retail, or manufacturing use.
-            </p>
-            <div class="meta">
-              <span class="badge blue">Finished gemstones</span>
-              <span class="badge">Ready to ship</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="process">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">How We Work</h2>
-          <p class="section-sub">
-            Whether clients seek immediate export-ready gemstones or prefer to participate personally in stone selection,
-            Welmenz Business Group offers flexible solutions designed to build long-term trust.
-          </p>
-        </div>
-      </div>
-
-      <div class="feature-grid">
-        <div class="feature">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h10v2H4v-2z"/></svg>
-          </div>
-          <h3>Requirements</h3>
-          <p>Share opal type, grade preference, quantity, destination, and timeline—then we confirm availability.</p>
-        </div>
-
-        <div class="feature">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6zm0-4C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
-          </div>
-          <h3>Selection Options</h3>
-          <p>Choose from export-ready stock or arrange a buyer-participation selection process.</p>
-        </div>
-
-        <div class="feature">
-          <div class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H7v4H4L2 12l2 4h3v4h10v-4h3l2-4-2-4zm-5-2v2H9V6h6z"/></svg>
-          </div>
-          <h3>Handling & Export</h3>
-          <p>Professional handling, packing, and export coordination aligned with international standards.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="container">
-      <div class="cta-wrap">
-        <div class="cta-inner">
+  <div class="soft-bg" id="top">
+    <header>
+      <div class="container nav">
+        <a class="brand" href="#top">
+          <div class="logo"><img src="logo.png" alt="Welmenz logo"></div>
           <div>
-            <h2>Request availability & export options</h2>
-            <p>Tell us what you need—rough, crystal, or polished—and we’ll respond with next steps for export.</p>
+            <b>Welmenz Business Group</b>
+            <div style="color:var(--muted);font-weight:800;font-size:12px;margin-top:2px;">
+              Ethiopian-Based Gemstone Exporter
+            </div>
           </div>
-          <div class="cta-actions">
-            <a class="btn primary" href="#contact">Request a Quote</a>
-            <a class="btn ghost" href="#products">View Products</a>
+        </a>
+
+        <nav class="menu" aria-label="Primary navigation">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">About Us</a>
+          <a href="#blog">Blog</a>
+        </nav>
+
+        <div style="display:flex;gap:10px;align-items:center">
+          <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/></svg>
+          </button>
+          <a class="btn primary" href="#contact">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="mobile" id="mobile" hidden>
+        <div class="wrap container">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">About Us</a>
+          <a href="#blog">Blog</a>
+          <div class="row">
+            <a class="btn primary" href="#contact">Get in Touch</a>
+            <a class="btn ghost" href="#services">View Services</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <footer id="contact">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="brand" style="margin-bottom:10px">
-            <div class="brand-mark" aria-hidden="true">
-              <img src="logowm.jpeg" alt="Welmenz Business Group logo">
-            </div>
-            <div class="brand-name">
-              <b>Welmenz Business Group</b>
-              <span>Gemstone export • Ethiopia</span>
-            </div>
-          </div>
+    <!-- ===== Anchors for menu targets ===== -->
+    <span id="home" class="anchor"></span>
 
-          <p style="margin:0;color:var(--muted);max-width:78ch">
-            Ethiopian-based gemstone exporter providing authentic stones, transparent sourcing,
-            and reliable export services that meet international standards.
+    <!-- HERO -->
+    <main class="hero">
+      <div class="container">
+        <div style="max-width:860px;margin:0 auto;text-align:center;position:relative;z-index:1;">
+          <h1>Infinite Opportunity,<br/>Chosen with Confidence</h1>
+
+          <p>
+            Welmenz Business Group is an Ethiopian-based gemstone exporter operating at the source of some of
+            Africa’s most sought-after gemstones. By working directly from origin, we provide our clients with
+            authentic stones, transparent sourcing, and reliable export services that meet international standards.
           </p>
 
-          <div class="contact" aria-label="Contact details">
-            <div class="row">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.21 2.2z"/></svg>
+          <div class="heroActions">
+            <a class="btn primary" href="#contact">Contact Us</a>
+            <a class="btn ghost" href="#services">Our Services</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ABOUT -->
+    <span id="about" class="anchor"></span>
+    <section>
+      <div class="container">
+        <div class="centerTitle">
+          <h2>Welcome to Welmenz Business Group</h2>
+          <p>
+            Our approach combines ethical sourcing, professional handling, and customer-centric processes.
+            Whether clients seek immediate export-ready gemstones or prefer to participate personally in stone selection,
+            we offer flexible solutions designed to build long-term trust.
+          </p>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <div class="iconCircle">
+              <svg viewBox="0 0 24 24"><path d="M12 2l4 4-1.4 1.4L12 4.8 9.4 7.4 8 6l4-4zm-7 9h14v2H5v-2zm1.5 9.5l-1-1 6.5-6.5 3 3 3.5-3.5 1 1-4.5 4.5-3-3-5.5 5.5z"/></svg>
+            </div>
+            <b>Ethical Sourcing</b>
+            <p>We work directly from origin to ensure authenticity, integrity, and responsible supply.</p>
+          </div>
+
+          <div class="feature">
+            <div class="iconCircle">
+              <svg viewBox="0 0 24 24"><path d="M10 3h4v2h-4V3zM5 7h14v2H5V7zm0 4h14v2H5v-2zm0 4h10v2H5v-2zm13 0h1v2h-1v-2z"/></svg>
+            </div>
+            <b>Transparent Operations</b>
+            <p>Clear processes and buyer-friendly communication that builds long-term trust.</p>
+          </div>
+
+          <div class="feature">
+            <div class="iconCircle">
+              <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H7v4H4l8 8 8-8zM6 10h12l-6 6-6-6zm1 10h10v2H7v-2z"/></svg>
+            </div>
+            <b>Reliable Export</b>
+            <p>Professional handling and export support aligned with international standards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <span id="services" class="anchor"></span>
+    <section>
+      <div class="container">
+        <div class="centerTitle">
+          <h2>Our Services</h2>
+          <p>Opal products maintained in stock and available for direct export.</p>
+        </div>
+
+        <div class="services">
+          <article class="service">
+            <div class="img"></div>
+            <div class="content">
+              <h3>Rough Opal</h3>
+              <p>
+                Sourced directly from Ethiopian opal fields, ideal for cutters, collectors, and wholesalers.
+                Export-ready parcels for immediate international shipment.
+              </p>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="img"></div>
+            <div class="content">
+              <h3>Crystal Opal</h3>
+              <p>
+                Ethiopian crystal opals known for transparency and vibrant play-of-color.
+                Carefully graded and prepared for fine jewelry manufacturers worldwide.
+              </p>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="img"></div>
+            <div class="content">
+              <h3>Polished Opal</h3>
+              <p>
+                Professionally cut and polished opals that highlight brilliance, color depth, and durability.
+                Ready for export and retail/manufacturing use.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG (real section) -->
+    <span id="blog" class="anchor"></span>
+    <section>
+      <div class="container">
+        <div class="centerTitle">
+          <h2>Blog</h2>
+          <p>Coming soon — updates on sourcing, export guidance, and product availability.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <span id="contact" class="anchor"></span>
+    <div class="bottomStrip">
+      <div class="container">
+        <div class="strip">
+          <div class="left">
+            <div class="lineRow">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.21 2.2z"/></svg>
               <span>+251 91 111 0786</span>
             </div>
-
-            <div class="row">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              <span>info@welmenz.com</span>
-            </div>
-
-            <div class="row">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
-              <span>
-                Cozy Building, 4th Floor #406<br>
-                Bole Sub-City, Djibouti Street, Addis Ababa, Ethiopia
-              </span>
-            </div>
-
-            <div class="row">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm0 2a7 7 0 1 0 0 14 7 7 0 0 0 0-14zm-1 3h2v2h-2V8zm0 4h2v4h-2v-4z"/></svg>
+            <div class="lineRow">
+              <svg viewBox="0 0 24 24"><path d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm0 2a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
               <span>www.Welmenz.com</span>
             </div>
           </div>
 
-          <div class="fine">
-            © <span id="year"></span> Welmenz Business Group. All rights reserved.
-          </div>
-        </div>
-
-        <div class="panel" aria-label="Quick inquiry form">
-          <b>Send an inquiry</b>
-          <p style="margin:6px 0 14px;color:var(--muted);font-size:13px">
-            Share what you need (type, quantity, destination). We’ll reply with availability and next steps.
-          </p>
-
-          <form onsubmit="event.preventDefault(); alert('Form submitted (demo). Connect to email/backend when ready.');">
-            <div style="display:grid;gap:10px">
-              <input class="field" required placeholder="Your name" />
-              <input class="field" required type="email" placeholder="Email address" />
-              <textarea class="field" required rows="4" placeholder="Request details (Rough/Crystal/Polished, quantity, destination)"></textarea>
-              <button class="btn primary" type="submit" style="width:100%">Submit</button>
-              <div class="fine">Tip: Add WhatsApp/Telegram link for faster communication.</div>
+          <div class="mid">
+            <div class="lineRow">
+              <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+              <span>Cozy Building, 4th Floor #406<br/>Bole Sub-City, Djibouti Street, Addis Ababa, Ethiopia</span>
             </div>
-          </form>
+          </div>
+
+          <div class="cta">
+            <a class="btn primary" href="tel:+251911110786">Call Now</a>
+          </div>
         </div>
       </div>
     </div>
-  </footer>
+
+    <div class="darkZone">
+      <footer>
+        <div class="container footerInner">
+          <span>© <span id="year"></span> Welmenz Business Group. All rights reserved.</span>
+          <span style="opacity:.9">Ethiopian-Based Gemstone Exporter</span>
+        </div>
+      </footer>
+    </div>
+  </div>
 
   <script>
     // Mobile menu
     const burger = document.getElementById('burger');
-    const panel = document.getElementById('mobilePanel');
+    const mobile = document.getElementById('mobile');
 
     burger?.addEventListener('click', () => {
       const expanded = burger.getAttribute('aria-expanded') === 'true';
       burger.setAttribute('aria-expanded', String(!expanded));
-      panel.hidden = expanded;
-      panel.style.display = expanded ? 'none' : 'block';
+      mobile.hidden = expanded;
+      mobile.style.display = expanded ? 'none' : 'block';
     });
 
-    panel?.addEventListener('click', (e) => {
+    mobile?.addEventListener('click', (e) => {
       const t = e.target;
       if (t && t.tagName === 'A') {
         burger.setAttribute('aria-expanded', 'false');
-        panel.hidden = true;
-        panel.style.display = 'none';
+        mobile.hidden = true;
+        mobile.style.display = 'none';
       }
     });
 
